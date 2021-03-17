@@ -17,8 +17,7 @@ public class EchoClient {
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }
 
-    public String sendMessage(String msg) throws IOException {
-        out.println(msg);
+    public String readMessage() throws IOException {
         String resp = in.readLine();
         return resp;
     }

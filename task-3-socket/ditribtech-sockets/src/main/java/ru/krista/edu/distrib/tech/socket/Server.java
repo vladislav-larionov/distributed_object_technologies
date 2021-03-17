@@ -2,13 +2,12 @@ package ru.krista.edu.distrib.tech.socket;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 
-public class EchoServer {
+public class Server {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private PrintWriter out;
@@ -17,15 +16,8 @@ public class EchoServer {
     public void start(int port) throws IOException {
         serverSocket = new ServerSocket(port);
         clientSocket = serverSocket.accept();
-        System.out.println("New client");
         out = new PrintWriter(clientSocket.getOutputStream(), true);
-        in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-        String greeting = in.readLine();
-        if ("hello server".equals(greeting)) {
-            out.println("hello client");
-        } else {
-            out.println("unrecognised greeting");
-        }
+        out.println("Larionov");
     }
 
     public void stop() throws IOException {
@@ -36,7 +28,7 @@ public class EchoServer {
     }
 
     public static void main(String[] args) throws IOException {
-        EchoServer server = new EchoServer();
-        server.start(5555);
+        Server server = new Server();
+        server.start(6000);
     }
 }
