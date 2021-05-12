@@ -5,10 +5,10 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class SearchResultsPage {
-    public ElementsCollection getResults() {
-        return $$(".serp-item");
+    public ElementsCollection getRecords() {
+        return $$(".item");
     }
-    public SelenideElement getResult(int index) {
-        return $(".serp-item", index);
+    public SelenideElement getRecord(int index) {
+        return $(".item", index);
     }
 }
